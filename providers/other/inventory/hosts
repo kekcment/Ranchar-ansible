@@ -1,6 +1,7 @@
 [Rancher]
-rancher ansible_ssh_port=22 ansible_ssh_host=35.156.214.197
+tst-alma-k8s-m1
+
 
 [Agents]
-agent1 ansible_ssh_port=22 ansible_ssh_host=35.157.220.147
-agent2 ansible_ssh_port=22 ansible_ssh_host=35.157.228.216
+tst-alma-k8s-w1
+tst-alma-k8s-w2
