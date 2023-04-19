@@ -16,9 +16,9 @@
     name=docker-py
     state=present
 
-# - name: Add docker yum repo
-#   shell: "yum-config-manager --add-repo {{ __docker_repo_url }}"
-#   when: __docker_package == "docker-ce"
+- name: Add docker yum repo
+  shell: "yum-config-manager --add-repo {{ __docker_repo_url }}"
+  when: __docker_package == "docker-ce"
 
 # - name: Add docker yum repo for older versions
 #   yum_repository:
