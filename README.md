@@ -111,19 +111,6 @@ The Rancher server version.
 
 The Rancher server port that will be exposed on the host.
 
-
-#### Usage
-
-The AWS playbook uses the AWS [dynamic inventory](https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/), so before using the playbook you should set the right credentials to be used with inventory:
-
-```
-$ export AWS_ACCESS_KEY_ID='YOUR_AWS_API_KEY'
-$ export AWS_SECRET_ACCESS_KEY='YOUR_AWS_API_SECRET_KEY'
-```
-Then you should execute the following command to run the playbook:
-
-```
-$ ansible-playbook -i providers/aws/inventory/ec2.py aws.yml
 ```
 
 ### Static Deployment
