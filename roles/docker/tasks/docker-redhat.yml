@@ -20,38 +20,53 @@
   shell: "yum-config-manager --add-repo {{ __docker_repo_url }}"
   when: __docker_package == "docker-ce"
 
-# - name: Add docker yum repo for older versions
-#   yum_repository:
-#     name: docker
-#     description: Docker Repo
-#     baseurl: "{{ __docker_repo_url }}"
-#     gpgkey: "{{ __docker_repo_key }}"
-#     gpgcheck: yes
-#   when: __docker_package == "docker-engine"
-
-# - name: Install Docker package
-#   yum:
-#     name="{{ __docker_package }}-{{ __docker_version }}"
-#     update_cache=yes
-
-- name: Add Docker repo
-  get_url:
-    url: https://download.docker.com/linux/centos/docker-ce.repo
-    dest: /etc/yum.repos.d/docker-ce.repo
- 
-- name: Install Docker
-  package:
-    name: docker-ce
-    state: latest
-
-- name: Start Docker service
-  service:
+- name: Add docker yum repo for older versions
+  yum_repository:
     name: docker
-    state: started
-    enabled: yes
+    description: Docker Repo
+    baseurl: "{{ __docker_repo_url }}"
+    gpgkey: "{{ __docker_repo_key }}"
+    gpgcheck: yes
+  when: __docker_package == "docker-engine"
+
+- name: Install Docker package
+  yum:
+    name="{{ __docker_package }}-{{ __docker_version }}"
+    update_cache=yes
+
+# - name: Install Docker
+#   gather_facts: No
+#   hosts: kuber
+#   become: yes
  
-- name: Add user localadmin to docker group
-  user:
-    name: localadmin
-    groups: docker
-    append: yes
+#   tasks:
+#     - name: Install yum utils
+#       yum:
+#         name: yum-utils
+#         state: latest
+ 
+#     - name: Install device-mapper-persistent-data
+#       yum:
+#         name: device-mapper-persistent-data
+#         state: latest
+ 
+#     - name: Install lvm2
+#       yum:
+#         name: lvm2
+#         state: latest
+ 
+#     - name: Add Docker repo
+#       get_url:
+#         url: https://download.docker.com/linux/centos/docker-ce.repo
+#         dest: /etc/yum.repos.d/docker-ce.repo
+ 
+#     - name: Install Docker
+#       package:
+#         name: docker-ce
+#         state: latest
+ 
+#     - name: Start Docker service
+#       service:
+#         name: docker
+#         state: started
+#         enabled: yes
