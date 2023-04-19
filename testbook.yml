@@ -1,0 +1,11 @@
+---
+- name: install k8s
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: install packages
+    apt: name={{item}} state=installed
+    with_items:
+        - docker
+        - mc
