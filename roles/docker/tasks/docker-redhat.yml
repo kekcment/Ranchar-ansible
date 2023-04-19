@@ -7,9 +7,9 @@
       state=present
   with_items: "{{ __docker_pre_packages }}"
 
-# - name: Install python3-pip
-#   easy_install:
-#       name=python3-pip
+- name: Install python3-pip
+  easy_install:
+      name=python3-pip
 
 - name: Install docker-py
   pip:
@@ -33,40 +33,3 @@
   yum:
     name="{{ __docker_package }}-{{ __docker_version }}"
     update_cache=yes
-
-# - name: Install Docker
-#   gather_facts: No
-#   hosts: kuber
-#   become: yes
- 
-#   tasks:
-#     - name: Install yum utils
-#       yum:
-#         name: yum-utils
-#         state: latest
- 
-#     - name: Install device-mapper-persistent-data
-#       yum:
-#         name: device-mapper-persistent-data
-#         state: latest
- 
-#     - name: Install lvm2
-#       yum:
-#         name: lvm2
-#         state: latest
- 
-#     - name: Add Docker repo
-#       get_url:
-#         url: https://download.docker.com/linux/centos/docker-ce.repo
-#         dest: /etc/yum.repos.d/docker-ce.repo
- 
-#     - name: Install Docker
-#       package:
-#         name: docker-ce
-#         state: latest
- 
-#     - name: Start Docker service
-#       service:
-#         name: docker
-#         state: started
-#         enabled: yes
