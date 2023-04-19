@@ -1,11 +1,11 @@
 ---
 
-- name: Install dependencies
-  yum:
-      name={{ item }}
-      update_cache=yes
-      state=present
-  with_items: "{{ __docker_pre_packages }}"
+# - name: Install dependencies
+#   yum:
+#       name={{ item }}
+#       update_cache=yes
+#       state=present
+#   with_items: "{{ __docker_pre_packages }}"
 
 # - name: Install python3-pip
 #   easy_install:
