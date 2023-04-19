@@ -7,9 +7,9 @@
       state=present
   with_items: "{{ __docker_pre_packages }}"
 
-- name: Install pip
+- name: Install pip3
   easy_install:
-      name=pip
+      name=pip3
 
 - name: Install docker-py
   pip:
