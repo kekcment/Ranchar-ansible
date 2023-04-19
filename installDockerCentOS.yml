@@ -1,7 +1,8 @@
 ---
 - name: Install Docker
   gather_facts: No
-  hosts: docker
+  hosts: kuber
+  become: yes
  
   tasks:
     - name: Install yum utils
@@ -35,8 +36,8 @@
         state: started
         enabled: yes
  
-    - name: Add user artem to docker group
+    - name: Add user localadmin to docker group
       user:
-        name: artem
+        name: localadmin
         groups: docker
         append: yes
