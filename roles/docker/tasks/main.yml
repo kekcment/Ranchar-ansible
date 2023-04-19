@@ -4,11 +4,6 @@
 
 - include: docker-redhat.yml
   when: ansible_os_family == 'RedHat'
-  static: yes
-
-- include: docker-debian.yml
-  when: ansible_os_family == 'Debian'
-  static: no
 
 - name: Create a docker group
   group:
