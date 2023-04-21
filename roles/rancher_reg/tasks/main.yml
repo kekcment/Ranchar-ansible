@@ -1,8 +1,8 @@
 ---
-# - name: Install httplib2
-#   pip:
-#       name=httplib2
-#       # update_cache=yes
+- name: Install httplib2
+  pip:
+      name=httplib2
+      # update_cache=yes
 
 - name: Get the default project id
   action: uri
